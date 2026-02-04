@@ -1,49 +1,27 @@
-"use client";
-import axios from "axios";
-import React, { use, useState } from "react";
+import Spline from '@splinetool/react-spline/next';
 
 const page = () => {
-  const [Images, setImages] = useState([]);
-  const getImages = async () => {
-    try {
-      const response = await axios.get("https://picsum.photos/v2/list");
-      const data = response.data;
-      setImages(data);
-      console.log(Images);
-    } catch (error) {
-      console.error("Error", error);
-    }
-  };
   return (
-    <>
-      <div>
-        <button
-          onClick={getImages}
-          className=" bg-amber-600 font-bold px-5 py-5 cursor-pointer text-white rounded-4xl "
-        >
-          Get Images{" "}
-        </button>
-        <div className="p-5 grid grid-cols-3 gap-24 space-x-4">
-        {Images.map((elem, i) => {
-          return (
-            <img
-              key={i}
-              src={elem.download_url}
-              alt=""
-              width={300}
-              height={300}
-              className="rounded-2xl flex flex-col justify-center"
-            />
-          );
-        })}
-
-
-        </div>
-
-        
+    <div className="w-full h-screen bg-black overflow-hidden relative">
+      {/* Background 3D Scene */}
+      <div className="absolute inset-0 z-0">
+         <Spline
+          scene="https://prod.spline.design/ikx3p5jrCZoCMbnN/scene.splinecode" 
+        />
       </div>
-    </>
+
+      {/* Foreground Content */}
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pointer-events-none">
+        <h1 className="text-white text-6xl md:text-8xl font-bold tracking-tighter mb-4 drop-shadow-2xl">
+          MEDPROOF
+        </h1>
+        <p className="text-gray-300 text-xl md:text-2xl font-light tracking-widest uppercase">
+          DeCentrallized Medicine Proof
+        </p>
+      </div>
+    </div>
   );
 };
 
 export default page;
+
