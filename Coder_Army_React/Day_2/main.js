@@ -36,6 +36,7 @@ const React = {
 
 const reactDom = {
   render: function (reactElement, root) {
+    root.innerHTML = "";
     const element = document.createElement(reactElement.type);
     const { props } = reactElement;
     for (const key in props) {
