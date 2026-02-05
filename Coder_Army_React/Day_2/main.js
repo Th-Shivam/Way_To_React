@@ -20,6 +20,8 @@ ReactDOM.render(element2, document.getElementById("root"));
 // jise react DOM apne virtual DOM me store krta hai
 // aur phir virtual DOM ko real DOM me update krta hai
 
+// React js sirf ui ka blueprint banata hai , aur react DOM us blueprint ko real DOM me render karta hai
+
 const React = {
   createElement: function (type, props, ...children) {
     return {
