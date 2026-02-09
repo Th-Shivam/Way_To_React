@@ -42,7 +42,17 @@ root2.render(<App2 name={name} />);
 const courses = ["React", "Angular", "Vue"];
 
 // add a key for each list item to avoid React warnings and ensure stable list rendering
-const list = courses.map((course, index) => <li key={index}>{course}</li>);
+// const list = courses.map((course, index) => <li key={index}>{course}</li>);
+
+// const root3 = ReactDOM.createRoot(document.getElementById('courses'));
+// root3.render(<ul>{list}</ul>);
+
+const courseElem = (
+    <ul>
+        {courses.map((course) => <li>{course}</li>) }
+    </ul>
+)
+
 
 const root3 = ReactDOM.createRoot(document.getElementById('courses'));
-root3.render(<ul>{list}</ul>);
+root3.render(courseElem);
